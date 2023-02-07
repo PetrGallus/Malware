@@ -1,0 +1,7 @@
+First challenge for only 5 points meaning it is really the easiest one...
+
+1. Download given input file 'flag.txt'
+
+2. Open the text file
+
+3. Copy the flag being displayed in a plain text to the picoCTF as the correct answer

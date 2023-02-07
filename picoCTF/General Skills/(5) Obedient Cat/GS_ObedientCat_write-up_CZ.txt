@@ -1,0 +1,7 @@
+První úkol za pouhých 5 bodů, což znamená, že je opravdu nejjednodušší...
+
+1. Stáhněte si zadaný vstupní soubor 'flag.txt'
+
+2. Otevřete textový soubor
+
+3. Zkopírujte flag zobrazený v prostém textu do picoCTF jako správnou odpověď
