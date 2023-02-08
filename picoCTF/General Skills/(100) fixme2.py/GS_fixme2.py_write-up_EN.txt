@@ -1,0 +1,15 @@
+============================================================
+Description
+Fix the syntax error in the Python script to print the flag. 
+Download Python script
+============================================================
+
+1. Download the given input python file
+
+2. Open the input file in editor
+    a) you can try to find the mistake manually line by line
+    b) you can open it in VSCodium or other dev SW to find the problem automatically
+    
+3. Problem is on line 22...we want flag to set equal to some specific string in ""...we should use two == for that
+
+4. Problem fixed, we can run the python script to show us the correct flag

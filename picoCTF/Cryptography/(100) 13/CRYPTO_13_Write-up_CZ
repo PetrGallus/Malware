@@ -1,0 +1,12 @@
+----------------------------------------------------------
+Popis
+Kryptografie může být snadná, víte, co je to ROT13? 
+cvpbPGS{abg_gbb_onq_bs_n_ceboyrz}
+----------------------------------------------------------
+
+1. Zkopírujte zadaný řetězec
+
+2. Jen podle názvu výzvy a popisu bychom se měli pokusit daný řetězec dešifrovat pomocí ROT13... použijte online nástroj
+    - https://rot13.com/
+    - vstup: cvpbPGS{abg_gbb_onq_bs_n_ceboyrz}
+    - výstup: správný příznak

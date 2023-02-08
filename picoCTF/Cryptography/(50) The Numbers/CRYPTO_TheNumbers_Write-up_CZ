@@ -1,0 +1,17 @@
+----------------------------------------------------------
+Popis
+Čísla... co znamenají?
+----------------------------------------------------------
+
+1. Stáhněte si daný vstupní soubor - .png s čísly
+
+2. Vyzkoušejte nejjednodušší známou šifru - čísla představující písmena abecedy.
+    - A = 1, B = 2, C = 3,....
+    - Použijte online dekodér
+        - https://www.dcode.fr/letter-number-cipher
+        - dešifrujte zadaná čísla se závorkami
+            - 16 9 3 15 3 20 6 9 { 20 8 5 14 21 13 2 5 18 19 13 1 19 15 14 }
+            - A je to, výsledek je:
+                - PICOCTFITHENUMBERSMASON
+                - změňte znak 'I' mezi F a T na { 
+                - Pro správnou odpověď přidejte na konec } ve formátu picoCTF...

@@ -1,0 +1,17 @@
+============================================================
+Popis
+Oprava syntaktické chyby ve skriptu Pythonu pro tisk příznaku. 
+Stáhnout skript Pythonu
+============================================================
+
+1. Stáhněte zadaný vstupní soubor Pythonu
+
+2. Otevřete vstupní soubor v editoru
+    a) můžete se pokusit najít chybu ručně řádek po řádku
+    b) můžete jej otevřít v programu VSCodium nebo jiném vývojovém softwaru a najít problém automaticky
+    
+3. Problém je na řádku 22... chceme, aby se příznak rovnal nějakému konkrétnímu řetězci v ""... měli bychom použít dva ==
+
+4. Problém je vyřešen, můžeme spustit skript v Pythonu, který nám ukáže správný příznak
+
+
