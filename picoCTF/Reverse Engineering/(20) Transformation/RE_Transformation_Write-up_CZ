@@ -1,0 +1,41 @@
+----------------------------------------------------------
+Popis
+Zajímalo by mě, co to vlastně je... enc 
+
+''.join([chr((ord(flag[i])) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+----------------------------------------------------------
+
+1. Stáhněte daný soubor 'enc'
+
+2. Otevřete vstupní soubor v nějakém editoru... např. ve VSCodium.
+    - pouze některé čínské znaky
+    - Co daný kód znamená?
+        - ''.join([chr((ord(flag[i])) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+            - vezme 1. znak příznaku a posune ho o 8 doleva
+            - vezme 2. znak příznaku a převede hodnotu na znak UTF-16
+            - provede to na délku příznaku
+            
+3. Podívejme se, co to udělalo
+    - flag = "picoCTF{Test_flag}"
+
+        flag_encryption = ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+        
+        print(flag_encryption)
+        
+    - výsledek: 灩捯䍔䙻呥獴彦污杽
+        - takže potřebujeme zpětným inženýrstvím získat příznak ze zadaného čínského řetězce
+        
+4. Zpětné inženýrství
+    - podívejte se na kód v souboru 'solution.py'
+        - nejprve převedeme řetězce do hexadecimálního tvaru
+        - zbavíme se 0x (2:)
+        - dekódujeme hexadecimální hodnotu řetězce na ASCII
+            - máme příznak :-)
+    
+    
+    
+Bonus:
+    - použijte CyberChef
+        - Magic - Intenzivní režim
+            - příznak je nalezen :-) 
+                - CTRL + F -> 'picoCTF'    

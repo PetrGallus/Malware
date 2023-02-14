@@ -1,0 +1,41 @@
+----------------------------------------------------------
+Description
+I wonder what this really is... enc 
+
+''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+----------------------------------------------------------
+
+1. Download given 'enc' file
+
+2. Open the input file in some editor...f.e. VSCodium
+    - only some chinese chars
+    - what does the given code mean?
+        - ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+            - it takes 1st char of flag and moves it by 8 to the left
+            - it takes 2nd char of flag and transforms value to UTF-16 char
+            - do that to the length of the flag
+            
+3. Lets see what it did
+    -   flag = "picoCTF{Test_flag}"
+
+        flag_encryption = ''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+        
+        print(flag_encryption)
+        
+    - result: 灩捯䍔䙻呥獴彦污杽
+        - so we need to reverse engineer the process to get a flag from the given chinese string
+        
+4. Reverse Engineering
+    - look at the code in 'solution.py'
+        - first we transform the strings into hex
+        - we get rid of 0x (2:)
+        - decode the hex value of a string into ASCII
+            - we got the flag :-)
+    
+    
+    
+Bonus:
+    - use CyberChef
+        - Magic - Intensive mode
+            - flag is found :-) 
+                - CTRL + F -> 'picoCTF'    
