@@ -1,0 +1,19 @@
+----------------------------------------------------------
+Popis
+crackme.py
+----------------------------------------------------------
+
+1. Stáhněte si daný soubor
+
+2. Otevřete vstupní soubor v nějakém editoru...např. ve VSCodium
+    - 2 funkce
+        - decode_secret
+        - choose_greatest
+    - Zdá se, že druhá část kódu funguje správně, ale první se nevolá.
+            
+3. Získat flag 
+    - necháme zavolat výsledek první funkce
+    - přidáme řádek na konec
+        - decode_secret(bezos_cc_secret)
+        - můžeme také odstranit funkci choose_greatest()
+    - A je to tady, flag :-)

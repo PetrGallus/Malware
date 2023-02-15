@@ -1,0 +1,20 @@
+----------------------------------------------------------
+Description
+crackme.py
+----------------------------------------------------------
+
+1. Download given file
+
+2. Open the input file in some editor...f.e. VSCodium
+    - 2 functions
+        - decode_secret
+        - choose_greatest
+    - sedond part of a code seems to work fine, but the first one is not being called
+            
+3. Get the flag 
+    - lets call the result of the first function
+    - add the line to the end
+        - decode_secret(bezos_cc_secret)
+        - we can also delete the choose_greatest()
+    - here we go, the flag :-)
+   

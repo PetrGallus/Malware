@@ -1,0 +1,42 @@
+----------------------------------------------------------
+Description
+Best Stuff - Cheap Stuff, Buy Buy Buy... 
+Store Instance: source. 
+The shop is open for business at 
+
+nc mercury.picoctf.net 10337.
+----------------------------------------------------------
+
+1. Download given file 'source'
+
+
+2. Run the given command 'nc mercury.picoctf.net 10337' 
+    - market app enabling you to buy or sell 3 products by its price, count and your balance
+        - you can get into minus balance by buying Average Apple (price 15, count 3 = 45 coins)
+            - current balance: -5
+            - next transaction doesnt work because of low balance
+
+3. Buy the (3) Fruitful Flag product
+    - we have 40 coins by default, but Fruitful Flag costs 100 coins
+    - we figured out we can work with negative balance and number
+    - lets buy some negative count of product to get money instead of givint it away
+        - Choose an option: 
+            - 0
+                - to buy (0) Quiet Quiches
+        - How many do you want to buy?
+            - -10
+        - You have 140 coins
+    - lets buy (3) Fruitful Flag now...
+        - Choose an option: 
+            - 2
+        - How many do you want to buy?
+            - 1
+        - Flag is: .....
+        
+4. Decode the given Fruitful Flag output
+    - we got decimal values and we need ascii
+        - https://onlineasciitools.com/convert-decimal-to-ascii
+            - we obtained the flag :-)
+            
+
+   
