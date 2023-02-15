@@ -1,0 +1,42 @@
+----------------------------------------------------------
+Popis
+Nejlepší věci - Levné věci, Buy Buy Buy... 
+Instance obchodu: zdroj. 
+Obchod je otevřen na adrese 
+
+nc mercury.picoctf.net 10337.
+----------------------------------------------------------
+
+1. Stáhněte si daný soubor 'source'
+
+
+2. Spusťte daný příkaz 'nc mercury.picoctf.net 10337'. 
+    - Aplikace market, která vám umožní koupit nebo prodat 3 produkty podle jejich ceny, počtu a vašeho zůstatku.
+        - do mínusu se můžete dostat nákupem Průměrného jablka (cena 15, počet 3 = 45 mincí).
+            - aktuální zůstatek: -5
+            - další transakce nefunguje kvůli nízkému zůstatku
+
+3. Koupit produkt (3) Ovocná vlajka
+    - Standardně máme 40 mincí, ale Fruitful Flag stojí 100 mincí.
+    - Přišli jsme na to, že můžeme pracovat se záporným zůstatkem a číslem
+    - koupíme si nějaký produkt se záporným počtem, abychom získali peníze, místo abychom je rozdali.
+        - Vyberte si možnost: 
+            - 0
+                - koupit (0) Quiet Quiches
+        - Kolik jich chcete koupit?
+            - -10
+        - Máte 140 mincí
+    - můžeme si koupit (3) Ovocnou vlajku...
+        - Vyberte možnost: 
+            - 2
+        - Kolik jich chcete koupit?
+            - 1
+        - Vlajka je: .....
+        
+4. Dekódujte daný výstup vlajky ovoce
+    - dostali jsme desetinné hodnoty a potřebujeme ascii
+        - https://onlineasciitools.com/convert-decimal-to-ascii
+            - jsme získali vlajku :-)
+            
+
+   

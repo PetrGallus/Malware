@@ -1,0 +1,39 @@
+----------------------------------------------------------
+Description
+Can you get the flag? 
+Run this Python program in the same directory as this encrypted flag.
+----------------------------------------------------------
+
+1. Download given two files 
+
+
+2. Flag file contains some kind of bad readable data
+
+
+3. patchme.flag.py
+    - def str_xor(secret, key):
+        - first function just adds chars to the key to get the necesary length and makes it decryptable
+    - flag_enc = open('flag.txt.enc', 'rb').read()
+        - opens the flag containing file        
+    - def level_1_pw_check():
+        - very important part containing hint how to obtain flag
+            - we need to enter the given password to run the function
+                - def level_1_pw_check():
+                
+4. Run the python script
+    - Please enter correct password for flag:
+        - lets enter the PW value from the code
+            - ak98-=90adfjhgj321sleuth9000
+    - voila, we got the flag :-)
+    
+    
+5. BONUS
+    - we could also do it 2 another ways:
+    5.1 Change password value to something shorter we want
+        - line 19 : if( user_pw == "picoCTF"):
+        - run the script and enter 'picoCTF' value as PW to obtain the flag
+    5.2 Ignore whole function level_1_pw_check():
+        - just copy the function calling the str_xor out of the function and delete it
+        -   decryption = str_xor(flag_enc.decode(), "utilitarian")
+            print(decryption)
+   

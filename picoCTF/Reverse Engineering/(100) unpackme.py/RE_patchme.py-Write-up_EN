@@ -1,0 +1,33 @@
+----------------------------------------------------------
+Description
+Can you get the flag? 
+Reverse engineer this Python program.
+----------------------------------------------------------
+
+1. Download given input file 
+
+
+2. Inspect the code of unpackme.flag.py
+    - it imports base64 and Fernet crypto
+    - payload is some value represented as a byte string
+    - key_str is value for encoding key
+    - key_base64 encodes the key into base64
+    - plain.decode decodes the decrypted payload value with Fernet using key
+    
+3. Run the script
+    - it asks us for the password which we dont know, it is not even mentioned in the code
+    - if we delete the 'exec' from the last line and just run the plain.decode(), nothing happens 
+    
+    
+4. Get rid of exec
+    - we dont know if its some kind of malware so we dont wanna execute the python script
+        - sufficient would be to just print it out
+            - instead of exec(plain.decode()) use print(plain.decode())
+    - run it
+        - it was easier than expected, here we go, the flag:
+            pw = input('What\'s the password? ')
+
+            if pw == 'batteryhorse':
+            print('picoCTF{flag - run it yourself}')
+            else:
+            print('That password is incorrect.')
