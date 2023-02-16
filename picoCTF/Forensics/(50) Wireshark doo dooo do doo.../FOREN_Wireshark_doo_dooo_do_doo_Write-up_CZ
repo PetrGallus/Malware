@@ -1,0 +1,41 @@
+----------------------------------------------------------
+Popis
+Dokážete najít vlajku? 
+shark1.pcapng.
+----------------------------------------------------------
+
+1. Stáhněte si daný vstupní soubor
+
+2. Otevřete jej v programu Wireshark a zkontrolujte protokol síťového provozu
+    - vidíme celkem téměř 1000 paketů
+        - 23 sekund
+        - protokoly: TCP, TLS 1.2, TLS 1.3, ARP, HTTP.
+        - konverzace
+            - menu -> Statistiky -> Konverzace
+            - ETH: 4
+            - IPv4: 4
+            - TCP: 17
+            - IPv4 ... data odeslaná od 103 do 104 (3. řádek) jsou největší 
+                - 1433 kB přenesených dat, většina z nich z A do B
+                    - z 192.168.38.103 na 192.168.38.104
+                        - Podívejme se na tyto údaje
+                        
+3. Filtrování IP adres s největším objemem přenesených dat
+    - ip.src==192.168.38.103 && ip.dst==192.168.38.104
+        - klikněte pravým tlačítkem myši -> Použít jako filtr -> Vybrané -> A->B
+    - žádné informace uvnitř
+    
+4. Filtrujte první v pořadí
+    - 18.222.37.134 && 192.168.38.104
+        - klikněte pravým tlačítkem myši -> Použít jako filtr -> Vybrané -> A <-> B
+            - ip.addr==18.222.37.134 && ip.addr==192.168.38.104
+                - je zde jeden požadavek GET / HTTP...
+                    - klikněte pravým tlačítkem myši -> Sledovat -> HTTP Stream
+                        - poslední řádek
+                            - Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
+                                - vypadá řádek příznak, ale v podivném pořadí
+                                
+                                
+5. Cyberchef
+    - zkuste nějaký druh ROT :-)
+        - jsme získali vlajku 

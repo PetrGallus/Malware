@@ -1,0 +1,41 @@
+----------------------------------------------------------
+Description
+Can you find the flag? 
+shark1.pcapng.
+----------------------------------------------------------
+
+1. Download given input file
+
+2. Open it in Wireshark to inspect network traffic log
+    - we can see nearly 1000 packets overall
+        - 23 seconds
+        - protocols: ARP, HTTP, TCP, TLS 1.2, TLS 1.3
+        - conversations
+            - menu -> Statistics -> Conversations
+            - ETH: 4
+            - IPv4: 4
+            - TCP: 17
+            - IPv4 ... data sent from 103 to 104 (3rd line) are largest 
+                - 1433 kB of data transmitted, most of the from A to B
+                    - from 192.168.38.103 to 192.168.38.104
+                        - lets look at these
+                        
+3. Filter IP addresses with biggest data transmitted
+    - ip.src==192.168.38.103 && ip.dst==192.168.38.104
+        - right click -> Apply as filter -> Selected -> A->B
+    - no info inside
+    
+4. Filter the first one in order
+    - 18.222.37.134 && 192.168.38.104
+        - right click -> Apply as filter -> Selected -> A <-> B
+            - ip.addr==18.222.37.134 && ip.addr==192.168.38.104
+                - there is one GET / HTTP request...
+                    - right click -> Follow -> HTTP Stream
+                        - last line
+                            - Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
+                                - looks line a flag, but in weird order
+                                
+                                
+5. Cyberchef
+    - try some kind of ROT :-)
+        - we obtained the flag 
