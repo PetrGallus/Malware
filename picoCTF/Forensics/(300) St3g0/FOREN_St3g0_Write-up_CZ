@@ -1,0 +1,34 @@
+----------------------------------------------------------
+Popis
+Stáhněte si tento obrázek a najděte vlajku.
+
+    Stáhnout obrázek
+----------------------------------------------------------
+
+1. Stáhněte si daný vstupní soubor
+
+2. Zkontrolujte zadaný soubor .png
+    - picoCTF na obrázku
+    - 13 kB
+    - Není vidět nic divného, jen obrázek, že?
+    - Použijme exiftoll, abychom jej mohli lépe zkontrolovat
+        - sudo apt-get install exiftool
+        - exiftool pico.flag.png
+    
+3. Steganografie
+    - použijme v Linuxu užitečný nástroj stego
+        - pokud jej nemáte nainstalovaný, použijte tento příkaz:
+            - V tomto případě použijte příkaz: sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e pico.flag.png
+            - 2 výsledky
+                - Obrázek PNG
+                - Data komprimovaná pomocí Zlib
+        - binwalk zde nebude užitečný
+    - STRINGS
+        - strings pico.flag.png
+        - nic moc viditelného
+    - ZSTEG
+        - sudo gem install zsteg
+        - zsteg pico.flag.png
+            - získali jsme příznak :-)

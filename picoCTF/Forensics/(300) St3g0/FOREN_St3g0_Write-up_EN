@@ -1,0 +1,34 @@
+----------------------------------------------------------
+Description
+Download this image and find the flag.
+
+    Download image
+----------------------------------------------------------
+
+1. Download given input file
+
+2. Inspect the given .png file
+    - picoCTF in the picture
+    - 13 kB
+    - nothing weird visible, just a picture, right?
+    - lets use exiftoll to inspect it better
+        - sudo apt-get install exiftool
+        - exiftool pico.flag.png
+    
+3. Steganography
+    - lets use useful stego tool in linux
+        - if you dont have it installed, use this command:
+            - sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e pico.flag.png
+            - 2 results
+                - PNG image
+                - Zlib compressed data
+        - binwalk will not be useful here
+    - STRINGS
+        - strings pico.flag.png
+        - nothing much visible
+    - ZSTEG
+        - sudo gem install zsteg
+        - zsteg pico.flag.png
+            - we obtained the flag :-)
