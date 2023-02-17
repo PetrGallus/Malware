@@ -1,0 +1,42 @@
+----------------------------------------------------------
+Popis
+Tato zahrada obsahuje více, než se zdá.
+----------------------------------------------------------
+
+1. Stáhněte si daný vstupní soubor
+
+2. Zkontrolujte zadaný soubor .png
+    - krásná zahrada na obrázku
+    - 2,3 MB
+    - Není vidět nic divného, jen obrázek, že?
+    
+3. Steganografie
+    - Pojďme použít užitečný stego nástroj v Linuxu
+        - Pokud ho nemáte nainstalovaný, použijte tento příkaz:
+            - V tomto případě použijte příkaz: sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e garden.png
+            -e pro extrakci všech věcí z našeho podezřelého souboru.
+            - 2 výsledky
+                - Obrázek JPEG se standardem JFIF
+                - Řetězec autorských práv
+
+4. Hexadecimální editor
+    - Nápověda pod touto výzvou nám říká: 
+        - Co je to hexadecimální editor?
+        - Zkusme soubor zkontrolovat pomocí hexadecimálního editoru.
+    - existuje mnoho hexadecimálních editorů pro Linux
+        - můžeme použít Hexedit
+            - je rychlý a jednoduchý
+            - funguje přes Terminál
+            
+5. Hexedit
+    - sudo apt-get install hexedit
+    - hexedit garden.png
+        - loooong output
+        - skočíme na konec souboru
+            - RUČNĚ: podržte klávesu 'END' na klávesnici
+            - vyskočte z příkazu a spusťte: xxd garden.jpg
+                - pro lepší kopírování použijte příkaz string
+                    - strings garden.jpg
+                        - získali jsme příznak :-)

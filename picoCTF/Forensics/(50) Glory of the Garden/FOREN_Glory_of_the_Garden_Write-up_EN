@@ -1,0 +1,42 @@
+----------------------------------------------------------
+Description
+This garden contains more than it seems.
+----------------------------------------------------------
+
+1. Download given input file
+
+2. Inspect the given .png file
+    - beautiful garden in the picture
+    - 2,3 MB
+    - nothing weird visible, just a picture, right?
+    
+3. Steganography
+    - lets use useful stego tool in linux
+        - if you dont have it installed, use this command:
+            - sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e garden.png
+            - -e for extracting all the stuff from our suspicious file
+            - 2 results
+                - JPEG image with JFIF standard
+                - Copyright string
+
+4. Hex editor
+    - Hint under this challenge tells us: 
+        - What is a hex editor?
+        - lets try to inspect the file with hex editor
+    - there are many hex editors for linux
+        - we can use Hexedit
+            - it is fast and simple
+            - works via Terminal
+            
+5. Hexedit
+    - sudo apt-get install hexedit
+    - hexedit garden.png
+        - loooong output
+        - lets jump to the end of the file
+            - MANUALLY: hold 'END' keyboard
+            - jump out of the command and run: xxd garden.jpg
+                - to copy it better, use strings command
+                    - strings garden.jpg
+                        - we obtained the flag :-)
