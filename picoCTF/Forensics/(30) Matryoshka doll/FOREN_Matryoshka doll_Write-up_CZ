@@ -1,0 +1,55 @@
+----------------------------------------------------------
+Popis
+Panenky Matrjošky jsou souborem dřevěných panenek zmenšující se velikosti, které jsou umístěny jedna v druhé. 
+Jaká je ta poslední? 
+Obrázek: tento
+----------------------------------------------------------
+
+1. Stáhněte si daný vstupní soubor
+
+2. Zkontrolujte zadaný soubor .png
+    - Černobílá panenka matrjoška
+    - 651,6 kB
+    - Není vidět nic divného, jen obrázek, že?
+    
+3. Steganografie
+    - Pojďme použít užitečný stego nástroj v Linuxu
+        - Pokud ho nemáte nainstalovaný, použijte tento příkaz:
+            - V tomto případě použijte příkaz: sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e dolls.png
+            -e pro extrakci všech věcí z našeho podezřelého souboru.
+            - 4 výsledky
+                - Obrázek PNG s 8bitovou barvou RGBA
+                - Obrázek TIFF
+                - Archiv ZIP s 379 kB dat
+                - Zápatí ZIP o délce 22
+        - ls
+            - vidíme nový skrytý soubor: _dolls.jpg.extracted
+        - cd _dolls.jpg.extracted/
+            - ls
+                - máme zde '4286C.zip' a 'base_images'    
+                - cd base_images
+                    - zde je obrázek '2_c.jpg'
+                        - Zkusíme na něm znovu binwalk
+        - binwalk -e 2_c.jpg
+            - ls
+                - je zde 3_c.jpg
+                - cd _2_c.jpg.extracted/base_images/
+                    - ls
+                        - tam je '3_c.jpg'
+                            - zkusíme binwalk ok to znovu
+        - binwalk -e 3_c.jpg
+            - ls
+                - je zde 4_c.jpg
+                - cd _3_c.jpg.extracted/base_images/
+                    - ls
+                        - tam je '4_c.jpg'
+                            - zkusíme binwalk ok to znovu
+        - binwalk -e 4_c.jpg
+            - ls
+                - cd _4_c.jpg.extracted/
+                    - ls    
+                        - flag.txt zde
+                            - cat flag.txt
+                                - získali jsme příznak :-)

@@ -1,0 +1,55 @@
+----------------------------------------------------------
+Description
+Matryoshka dolls are a set of wooden dolls of decreasing size placed one inside another. 
+What's the final one? 
+Image: this
+----------------------------------------------------------
+
+1. Download given input file
+
+2. Inspect the given .png file
+    - black n white matryoshka doll
+    - 651,6 kB
+    - nothing weird visible, just a picture, right?
+    
+3. Steganography
+    - lets use useful stego tool in linux
+        - if you dont have it installed, use this command:
+            - sudo apt-get install binwalk
+    - BINWALK
+        - binwalk -e dolls.png
+            - -e for extracting all the stuff from our suspicious file
+            - 4 results
+                - PNG image with 8-bit color RGBA
+                - TIFF image
+                - ZIP archive with 379 kB of data
+                - ZIP Footer with 22 length
+        - ls
+            - we can see new hidden file: _dolls.jpg.extracted
+        - cd _dolls.jpg.extracted/
+            - ls
+                - we have '4286C.zip' and 'base_images' here    
+                - cd base_images
+                    - there is '2_c.jpg' image
+                        - lets try binwalk on this again
+        - binwalk -e 2_c.jpg
+            - ls
+                - there is 3_c.jpg
+                - cd _2_c.jpg.extracted/base_images/
+                    - ls
+                        - there is the '3_c.jpg'
+                            - lets try binwalk ok this again
+        - binwalk -e 3_c.jpg
+            - ls
+                - there is 4_c.jpg
+                - cd _3_c.jpg.extracted/base_images/
+                    - ls
+                        - there is the '4_c.jpg'
+                            - lets try binwalk ok this again
+        - binwalk -e 4_c.jpg
+            - ls
+                - cd _4_c.jpg.extracted/
+                    - ls    
+                        - flag.txt here
+                            - cat flag.txt
+                                - we obtained the flag :-)
